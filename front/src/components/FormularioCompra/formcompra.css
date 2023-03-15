@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family= Roboto: wght @100 & display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form-compra-pai{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #CBDAFA;
+    border-radius: 2rem;
+    padding: 3rem;
+    gap: 1rem;
+    height: 42rem;
+    width: 65rem;
+}
+.pai-form-label-compra{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.campos-form-compra{
+    display: flex;
+    flex-direction: column;
+}
+.inputs-form-compra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.label-itens-compra{
+    padding: 0.6rem;
+    font-family:  'Jost', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    align-self: flex-end;
+    padding: 1rem;
+}
+.pai-titulo-form-compra{
+    display: flex;
+    align-items: center;
+}
+.form-pai-pagamento{
+    display: flex;
+    align-items: center;
+}
+.form-pai-pagamento label{
+    padding: 1.5rem;
+    font-size: large;
+    font-family:  'Jost', sans-serif;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.grid-paga{
+    display: flex;
+    padding: 5px;
+    gap: 5px 10px;
+    align-items: center; 
+}
+.grid-paga input{
+    border-radius: 0.5rem;
+    border-style: none;
+    height: 20px;
+    padding: 0.8rem;
+}
+.input-itens-compra{
+    border-radius: 0.5rem;
+    border-style: none;
+    height: 20px;
+    width: 15rem;
+    padding: 1rem;
+}
+.botao-form{
+    width: 15rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #001B54;
+    color: #CBDAFA;
+    font-size: large;
+    margin: 1rem;
+    font-weight: 600;
+}
+.titulo-form-compra{
+    color: #001B54;
+    font-family:  'Jost', sans-serif;
+}
+.grid-paga label{
+    font-size: large;
+    font-family:  'Jost', sans-serif;
+}
+.container-compra{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.select-compra{
+    width: 15rem;
+    height: 2rem;
+}
+.select-compra option{
+    font-size: large;
+    font-weight: 600;
+}

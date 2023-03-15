@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family= Roboto: wght @100 & display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container-loja{
+    display: flex;
+    align-items: center;
+}
+.container-form{
+    display: flex;
+    justify-content: space-between;
+}
+.formulario-loja{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    align-content: center;
+    background-color: #CBDAFA;
+    border-radius: 1rem;
+    padding: 2rem;
+    gap: 1rem;
+    width: 65rem;
+    height: 35em;
+}
+.div-loja{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.div-loja h2{
+    font-family: 'Jost', sans-serif;
+    font-size: x-large;
+    color: #032876;
+}
+.div-loja img{
+    width: 2rem;
+}
+.form-loja{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.campos-form-div{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.campos-form-div label{
+    padding: 0.3rem;
+    font-family:  'Jost', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    align-self: flex-end;
+}
+.inputs-form-loja{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.inputs-form-loja input{
+    border-radius: 0.5rem;
+    border-style: none;
+    padding: 0.4rem;
+    width: 15rem;
+    font-size: large;
+}
+.botao-form-loja{
+    width: 15rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #001B54;
+    color: #CBDAFA;
+    font-size: 18px;
+    font-weight: 600;
+    font-family:  'Jost', sans-serif;
+}
+.select-loja{
+    width: 15rem;
+    height: 2rem;
+}
+.select-loja option{
+    font-size: large;
+    font-weight: 600;
+}
+/* Seleciona qualquer input válido 
+input:valid {
+    background-color: rgb(32, 97, 12) ;
+}*/
+
+
+  
+
+
+
+
+
+
