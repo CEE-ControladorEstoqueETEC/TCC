@@ -20,13 +20,14 @@ async function updateCustomer(name, email, contact, phone, cellphone, cpf, cnpj,
     conn.end();
 }
 
-async function listCustomer(){
+async function selectAll(){
     const sql = 'select * from clientes';
 
-
     const conn = await database.connect();
-    conn.query(sql);
+    const [result] = await conn.query(sql);
     conn.end();
+
+    return result;
 }
 
 async function deleteCustomer(id){
@@ -38,4 +39,4 @@ async function deleteCustomer(id){
     conn.end();
 }
 
-export default {createCustomer, updateCustomer, listCustomer, deleteCustomer};
+export default {createCustomer, updateCustomer, selectAll, deleteCustomer};

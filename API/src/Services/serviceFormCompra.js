@@ -29,4 +29,16 @@ async function deletePurchase(id){
     conn.end();
 }
 
-export default {createPurchase, updatePurchase, deletePurchase}
+async function selectAll(){
+    const sql = 'select * from usuarios';
+
+    const conn = await database.connect();
+    const [result] = await conn.query(sql);
+    conn.end();
+
+    // console.log(result)
+    return result;
+}
+
+
+export default {createPurchase, updatePurchase, deletePurchase, selectAll}

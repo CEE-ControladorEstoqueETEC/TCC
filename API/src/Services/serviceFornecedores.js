@@ -5,7 +5,7 @@ async function createProvider(name, corporationName, cnpj, contact, email, phone
 
     const data = [name, corporationName, cnpj, contact, email, phone, stateInsc, productLine, adressCep, street, number, city, state, neighborhood]
 
-    const conn = await database.connect()
+    const conn = await database.connect();
     conn.query(sql, data)
     conn.end()
 }
@@ -30,4 +30,16 @@ async function deleteProvider(id){
     conn.end()
 }
 
-export default {createProvider, updateProvider, deleteProvider}
+async function selectAll(){
+    const sql = 'select * from fornecedores';
+
+    const conn = await database.connect();
+    const [result] = await conn.query(sql);
+    conn.end();
+
+    // console.log(result)
+    return result;
+}
+
+
+export default {createProvider, updateProvider, deleteProvider, selectAll}

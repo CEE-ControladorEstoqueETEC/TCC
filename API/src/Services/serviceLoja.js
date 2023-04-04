@@ -31,7 +31,18 @@ async function deleteStore(id){
     conn.end()
 }
 
-export default {createStore, updateStore, deleteStore};
+async function selectAll(){
+    const sql = 'select * from cadastro_loja';
+
+    const conn = await database.connect();
+    const [result] = await conn.query(sql);
+    conn.end();
+
+    // console.log(result)
+    return result;
+}
+
+export default {createStore, updateStore, deleteStore, selectAll};
 
 
 

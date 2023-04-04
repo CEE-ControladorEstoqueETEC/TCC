@@ -31,4 +31,15 @@ async function deleteProduct(id){
     conn.end()
 }
 
-export default {createProduct, updateProduct, deleteProduct}
+async function selectAll(){
+    const sql = 'select * from produto';
+
+    const conn = await database.connect();
+    const [result] = await conn.query(sql);
+    conn.end();
+
+    // console.log(result)
+    return result;
+}
+
+export default {createProduct, updateProduct, deleteProduct, selectAll}

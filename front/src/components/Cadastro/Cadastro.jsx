@@ -11,12 +11,13 @@ function Cadastro() {
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
+const [confirmPassword, setConfirmPassword] = useState('');
 
 async function handleRegistrer(event){
   event.preventDefault();
   try{
     const data = {
-      name, email, password
+      name, email, password, confirmPassword
     };
     const response = await api.post('/user', data);
 
@@ -25,6 +26,7 @@ async function handleRegistrer(event){
     setName('');
     setEmail('');
     setPassword('');
+    setConfirmPassword('');
   } catch(error){
     alert(`Erro no cadastro. Tente novamente. \nCodigo erro: ${error}`);
   }
@@ -58,7 +60,10 @@ async function handleRegistrer(event){
                   <label>Senha</label>
                   <input type='password' placeholder='Insira a senha' value={password} onChange={e=> setPassword(e.target.value)} required/>
 
-                  <button>Cadastrar</button>
+                  <label>Confirmação de senha</label>
+                  <input type='password' placeholder='Insira a senha novamente' value={confirmPassword} onChange={e=> setConfirmPassword(e.target.value)} required/>
+
+                  <button type="submit">Cadastrar</button>
 
                   <h4>Já tem cadastro?<Link to='/'>Login</Link></h4>
             </form>
