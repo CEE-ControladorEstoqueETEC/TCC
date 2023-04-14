@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.menulateral-cont{
+    display: flex;
+}
+.menulateral-itens{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    background-color: #001B54;
+    height: 100vh;
+}
+.menulateral-itens img{
+    max-width: 3rem;
+    max-height: 3rem;
+    width: auto;
+    height: auto;
+}
+.menu-lateral-itens{
+    margin: 0.5rem;
+}

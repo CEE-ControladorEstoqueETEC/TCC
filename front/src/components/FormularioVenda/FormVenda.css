@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family= Roboto: wght @100 & display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.botao{
+    width: 9rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background-color: #001B54;
+    color: #CBDAFA;
+    font-weight: 600;
+    font-family:  'Jost', sans-serif;
+    margin: 1rem;
+}
+.form-venda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #CBDAFA;
+    border-radius: 2rem;
+    padding: 1rem;
+    width: 74rem;
+    height: 40rem;
+}
+.pai-titulo-form-venda{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.pai-titulo-form-venda img{
+    width: 3rem;
+}
+.pai-campo-label{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.pai-campo-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.pai-form-venda{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+.label-itens-venda{
+    align-self: flex-end;
+    font-family:  'Jost', sans-serif;
+    font-size: large;
+    font-weight: 600;
+    padding: 0.3rem;
+}
+.input-itens-venda{
+    border-radius: 0.5rem;
+    border-style: none;
+    height: 20px;
+    width: 15rem;
+    padding: 1rem;
+
+}
+.titulo-forma-pagamento{
+    font-family:  'Jost', sans-serif;
+    font-size: large;
+}
+.titulo-form-venda{
+    font-family:  'Jost', sans-serif;
+    font-size: x-large;
+    color: #001B54;
+}
+.forma-pagamento-venda{
+    display: flex;
+    align-items: center;
+}
+.forma-pagamento-venda label{
+    padding: 1rem;
+    font-size: large;
+    font-family:  'Jost', sans-serif;
+}
+.div-pagamento{
+    display: flex;
+    align-items: center; 
+    padding: 1%;
+    gap: 1rem;
+}
+
+.div-pagamento input{
+    border-radius: 2rem;
+    border-style: none;
+    height: 20px;
+    padding: 1rem;
+}
+.div-pagamento label{
+    font-family:  'Jost', sans-serif;
+    font-size: large; 
+}
+.botao-vender{
+    width: 15rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #001B54;
+    color: #CBDAFA;
+    font-size: large;
+    font-weight: 600;
+    font-family:  'Jost', sans-serif;
+    margin: 1rem;
+}
+.container-vendas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.select-venda{
+    width: 15rem;
+    height: 2rem;
+}
+.select-venda option{
+    font-size: large;
+    font-weight: 600;
+}
+

@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family= Roboto: wght @100 & display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container header{
+    background-color: #001B54;
+    padding: 0.5rem;
+    width: 100%; 
+}
+
+.container header img{
+    width: 5rem;
+    height: 2rem;
+}
+.container-login-pai{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem;
+    gap: 15rem;
+    margin-top: 15rem;
+}
+.container-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #CBDAFA;
+    padding: 4rem;
+    border-radius: 0.5rem;
+    gap: 0.5rem;
+}
+.container-login label{
+    align-self: flex-start;
+    font-family:  'Jost', sans-serif;
+    font-size: large;
+
+}
+.container-login h1{
+    font-family:  'Jost', sans-serif;
+    color: #001B54;
+}
+.container-login input{
+    height: 3rem;
+    width: 20rem;
+    padding: 1rem;
+    font-size: large;
+}
+.container-login button{
+    height: 3rem;
+    width: 20rem;
+    font-family:  'Jost', sans-serif;
+    color: azure;
+    background-color: #001B54;
+    font-size: large;
+}
+.container-login button:hover{
+    opacity: 70%;
+}
+.container-login h5{
+    font-family:  'Jost', sans-serif;
+    padding: 0.5rem;
+}
