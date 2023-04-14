@@ -1,7 +1,10 @@
 import database from '../Repository/connection.js';
 
 async function createCustomer(name, email, contact, phone, cellphone, cpf, adressCep, street, state, neighborhood, city, number){
-    const sql = 'insert into clientes(nome_cliente, email_cliente, contato_cliente, telefone_cliente, celular_cliente, cpf_cliente, endereco_cep, endereco_rua, endereco_estado, endereco_bairro, endereco_cidade, endereco_numero) values (?,?,?,?,?,?,?,?,?,?,?,?)';
+    const sqlBegin = `begin
+    insert into clientes(nome_cliente, email_cliente, contato_cliente, telefone_cliente, celular_cliente, cpf_cliente, endereco_cep, endereco_rua, endereco_estado, endereco_bairro, endereco_cidade, endereco_numero) values (?,?,?,?,?,?,?,?,?,?,?,?)`
+
+
 
     const data = [name, email, contact, phone, cellphone, cpf, adressCep, street, state, neighborhood, city, number];
 
