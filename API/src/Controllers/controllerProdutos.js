@@ -54,7 +54,7 @@ routes.put("/",[
         const result = await service.selectAll()
         
         if(result.length > 0){            
-            response.status(200).send({result})            
+            response.status(200).send(result)            
         }else{
             response.status(404).send({message: "Nenhum registro encontrado"})
         }

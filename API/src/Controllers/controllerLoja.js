@@ -5,10 +5,12 @@ import service from '../Services/serviceLoja.js';
 const routes = express.Router();
 
 routes.post("/", async (request, response) => {
-    const {storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, adress, city, cep} = request.body;
+    
+    const {storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, cep, adressNumber, adressSupplement} = request.body;
+
     try{
         
-        await service.createStore(storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, adress, city, cep);
+        await service.createStore(storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, cep, adressNumber, adressSupplement);
 
         response.status(200).send("Successful registration!")
     }catch(error){

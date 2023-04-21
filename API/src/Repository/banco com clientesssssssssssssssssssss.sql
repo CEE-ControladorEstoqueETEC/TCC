@@ -19,9 +19,39 @@ create table clientes(
 	endereco_cep varchar(8) not null,
     endereco_numero varchar(5),
     endereco_complemento varchar(50),
+    tipo_cliente enum('PJ','PF') not null,
     data_cadastro datetime default now()
 );
 #select * from clientes;
+
+
+
+create table cliente_juridico(
+	FK_id_cliente int unique not null,
+    razao_social varchar(150) not null,
+    cnpj_cliente varchar(14) not null,
+    inscricao_estadual varchar(9) not null,
+    
+    constraint FK_id_clienteJ 
+		foreign key (FK_id_cliente) 
+        references clientes(id_cliente)
+);
+
+create table cliente_fisico(
+	FK_id_cliente int unique not null,
+    cpf_cliente varchar(11) not null,
+    rg_cliente varchar(9),
+    
+    constraint FK_id_clienteF
+		foreign key (FK_id_cliente)
+        references clientes(id_cliente)    
+);
+
+
+
+
+
+
 
 
 
@@ -162,42 +192,59 @@ create table usuarios(
     data_cadastro datetime default now()
 );
 
-#select * from usuarios;
+#SELECT * FROM usuarios;
 
-#select * from usuarios where email = "paulo@paulo" and senha = "123456";
+#SELECT * FROM usuarios WHERE email = "paulo@paulo" AND senha = "123456";
 
-#select nome_usuario from usuarios where email = "paulin.teste@teste" and senha = "123456";
+#SELECT nome_usuario FROM usuarios WHERE email = "paulin.teste@teste" AND senha = "123456";
 
 
 
 INSERT INTO clientes(
 	nome_cliente, email_cliente, contato_cliente, telefone_cliente, celular_cliente, 
-	endereco_cep, endereco_numero, endereco_complemento) 
-    VALUES("Rodolfo","rod.olfo@teste.com","Clarisse","1146844281","11958446241","06594214","150","");
-# select * from clientes;
+	endereco_cep, endereco_numero, endereco_complemento, tipo_cliente) 
+    VALUES	("Rodolfo","rod.olfo@teste.com","Clarisse","1146844281","11958446241","06594214","150","","PJ"),
+			("Roberval","rob.erval@teste.com","Joaquim","1146647982","11956428974","06581356","26","Casa 2","PF");
+
+select * from clientes;
+
+INSERT INTO cliente_juridico(
+	FK_id_cliente, razao_social, cnpj_cliente, inscricao_estadual)
+    VALUES("1","Creatine Rex co.","25696584000165","658965325");
+SELECT * FROM cliente_juridico;
+
+INSERT INTO cliente_fisico(
+	FK_id_cliente, cpf_cliente, rg_cliente)
+	VALUES("2","56984523568","54862449x");
+SELECT * FROM cliente_fisico;
+
+
+
+
+
 
 INSERT INTO fornecedores(
 	razao_social, nome_fornecedor, email_fornecedor, contato_fornecedor, telefone_fornecedor, cnpj_fornecedor, 
 	inscricao_estadual, linha_produto, endereco_cep, endereco_numero, endereco_complemento) 
     VALUES("Fornecedor LTDA.","Fornece sem dor","fornece@dor.br","Fernando","1154778564","25498632000161","546821679","N/E","35846210","840", "");
-# select * from fornecedores;
+# SELECT * FROM fornecedores;
 
 INSERT INTO produto(
 	nome_produto, FK_id_fornecedor, categoria_produto, preco_unitario, quantidade_produto, quantidade_minima, quantidade_maxima) 
     VALUES("Macarrão", "1", "Alimento seco não perecível", 5.20, "150", "30", "300");
-# select * from produto;
+# SELECT * FROM produto;
 
 INSERT INTO usuarios(
 	nome_usuario, email, senha) 
     VALUES("Teste","teste@teste.com","senhafoda50520");
-# select * from usuarios;
+# SELECT * FROM usuarios;
 
 INSERT INTO lojas(
 	nome_loja, ramo_atividade, email, razao_social, proprietario, nome_contato, telefone_contato,
     telefone, pais, endereco_cep, endereco_numero, endereco_complemento) 
     VALUES("Padoca Vila Grande", "Confeitaria", "padoca@teste.com", "Padoquinhão Grande Vila LTDA.",
     "Frantchesco", "Ruth", "1179448562", "1180256133", "Brasil", "56485350", "469", "");
-# select * from lojas;
+# SELECT * FROM lojas;
 
 
 
@@ -210,8 +257,8 @@ INSERT INTO lojas(
 
 INSERT INTO tbl_compras(
 	FK_cod_fornecedor, data_compra, valor_total, prazo_pagamento, prazo_entrega, forma_entrega, forma_pagamento	) 
-	VALUES("1", "2023-03-15", "", "2023-03-16", "2023-03-18", "Responsabilidade do Cliente", "Cartão Débito");
-# select * from tbl_compras;
+	VALUES("1", "2023-03-15", "0", "2023-03-16", "2023-03-18", "Responsabilidade do Cliente", "Cartão Débito");
+# SELECT * FROM tbl_compras;
 
 
 
@@ -222,9 +269,9 @@ INSERT INTO detalhecompra(
 	FK_cod_compra, FK_cod_prod, qtd, valor_unit) 
     VALUES("1", "1", "10", "2.30");
 UPDATE tbl_compras SET 
-	valor_total = (select sum(qtd * valor_unit) from detalhecompra where FK_cod_compra = 1) 
+	valor_total = ( SELECT sum(qtd * valor_unit) FROM detalhecompra WHERE FK_cod_compra = 1) 
     WHERE id_compra = 1;
-# select * from detalhecompra;
+# SELECT * FROM detalhecompra;
 
 
 
@@ -237,8 +284,8 @@ UPDATE tbl_compras SET
 
 INSERT INTO tbl_vendas(
 	FK_id_cli, data_venda, total_produtos, valor_total, prazo_pagamento, prazo_entrega, forma_entrega, forma_pagamento)
-	VALUES("1", "2023-03-15", "", "", "2023-03-16", "2023-03-18", "Responsabilidade do Cliente", "Cartão Débito");
-# select * from tbl_vendas;
+	VALUES("1", "2023-03-15", "0", "0", "2023-03-16", "2023-03-18", "Responsabilidade do Cliente", "Cartão Débito");
+ SELECT * FROM tbl_vendas;
  
 
 INSERT INTO detalhevenda(
@@ -248,8 +295,9 @@ INSERT INTO detalhevenda(
 	FK_cod_venda, FK_cod_produ, qtd, valor_unit) 
     VALUES("1", "1", "10", "2.30");
 UPDATE tbl_vendas SET 
-    total_produtos = (select sum(qtd) from detalhevenda where FK_cod_venda = 1),
-	valor_total = (select sum(qtd * valor_unit) from detalhevenda where FK_cod_venda= 1)
+    total_produtos = ( SELECT sum(qtd) FROM detalhevenda WHERE FK_cod_venda = 1 ),
+	valor_total = ( SELECT sum(qtd * valor_unit) FROM detalhevenda WHERE FK_cod_venda= 1 )
     WHERE id_venda = 1;
-# select * from detalhecompra;
+ 
+ SELECT * FROM detalhecompra;
 

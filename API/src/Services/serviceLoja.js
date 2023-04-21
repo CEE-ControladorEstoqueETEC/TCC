@@ -1,10 +1,11 @@
 import database from '../Repository/connection.js';
 
-async function createStore(storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, adress, city, cep){
-    const sql = 'insert into cadastro_loja(nome_loja, ramo_atividade, email, razao_social, proprietario, nome_contato, telefone_contato, telefone, pais, endereco, cidade, cep) values(?,?,?,?,?,?,?,?,?,?,?,?)';
+async function createStore(storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, cep, adressNumber, adressSupplement){
+
+    const sql = 'INSERT INTO cadastro_loja(nome_loja, ramo_atividade, email, razao_social, proprietario, nome_contato, telefone_contato, telefone, pais, endereco_cep, endereco_numero, endereco_complemento) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)';
         
 
-    const data = [storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, adress, city, cep];
+    const data = [storeName, businessLine, email, corporateName, owner, contactName, contactPhone, phone, country, cep, adressNumber, adressSupplement];
 
     const conn = await database.connect();
     conn.query(sql, data);

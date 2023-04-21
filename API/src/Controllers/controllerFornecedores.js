@@ -5,10 +5,10 @@ import service from '../Services/serviceFornecedores.js';
 const routes = express.Router();
 
 routes.post("/", async (request, response) => {
-    const {name, corporationName, cnpj, contact, email, phone, stateInsc, productLine, adressCep, street, number, city, state, neighborhood} = request.body;
+    const {corporationName, name, email, contact, phone, cnpj, stateInsc, productLine, cep, adressNumber, adressSupplement} = request.body;
 
     try{
-        await service.createProvider(name, corporationName, cnpj, contact, email, phone, stateInsc, productLine, adressCep, street, number, city, state, neighborhood);
+        await service.createProvider(corporationName, name, email, contact, phone, cnpj, stateInsc, productLine, cep, adressNumber, adressSupplement);
 
         response.status(200).send("Successful registration!")
     }catch(error){
@@ -21,7 +21,7 @@ routes.get("/", async (request, response) =>{
         const result = await service.selectAll()
 
         if(result.length > 0){            
-            response.status(200).send({result})           
+            response.status(200).send(result)           
         }else{
             response.status(404).send({message: "Nenhum registro encontrado"})
         }

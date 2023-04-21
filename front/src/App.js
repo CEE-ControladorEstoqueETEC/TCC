@@ -11,7 +11,7 @@ import FormularioVenda from './pages/TelaFormVenda/FormularioVenda';
 import FormularioCliente from './pages/TelaFormCliente/FormularioCliente';
 import Login from './components/Login/Login';
 import TelaCadastro from './pages/TelaCadastro/TelaCadastro';
-
+import Tabela from './components/TabelaClientes';
 
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
         <Route path='/formcompra' element={<FormCompra/>}/>
         <Route path='/formvenda' element={<FormularioVenda/>}/>
         <Route path='/formulariocliente' element={<FormularioCliente/>}/>
+        <Route path='/tabela' element={<Tabela />} />
       </Routes>
     </Roter>
   );

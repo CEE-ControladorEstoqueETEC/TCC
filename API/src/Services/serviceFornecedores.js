@@ -1,9 +1,10 @@
 import database from '../Repository/connection.js'
 
-async function createProvider(name, corporationName, cnpj, contact, email, phone, stateInsc, productLine, adressCep, street, number, city, state, neighborhood ){
-    const sql = 'insert into fornecedores(nome_fornecedor, razao_social, cnpj_fornecedor, contato_fornecedor, email_fornecedor, telefone_fornecedor, inscricao_estadual, linha_produto,endereco_cep, endereco_rua, endereco_numero, endereco_cidade, endereco_estado, endereco_bairro) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+async function createProvider(corporationName, name, email, contact, phone, cnpj, stateInsc, productLine, cep, adressNumber, adressSupplement){
+    const sql = `INSERT INTO fornecedores(        razao_social, nome_fornecedor, email_fornecedor, contato_fornecedor, telefone_fornecedor, cnpj_fornecedor,        inscricao_estadual, linha_produto, endereco_cep, endereco_numero, endereco_complemento)
+    VALUES(?,?,?,?,?,?,?,?,?,?)`
 
-    const data = [name, corporationName, cnpj, contact, email, phone, stateInsc, productLine, adressCep, street, number, city, state, neighborhood]
+    const data = [corporationName, name, email, contact, phone, cnpj, stateInsc, productLine, cep, adressNumber, adressSupplement]
 
     const conn = await database.connect();
     conn.query(sql, data)
